@@ -1,5 +1,6 @@
 package com.sudhindra.schack25.ui.components
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -224,6 +225,7 @@ private fun StatBadge(
 /**
  * Format count with commas (e.g., 1247 -> 1,247)
  */
+@SuppressLint("DefaultLocale")
 private fun formatCount(count: Int): String {
     return String.format("%,d", count)
 }
