@@ -40,6 +40,7 @@ data class PostCardData(
     val username: String = "Devotional Post Bot",
     val timeAgo: String,
     val caption: String,
+    val quote: String = "",
     val likes: Int,
     val comments: Int,
     val avatarUrl: String = "https://upload.wikimedia.org/wikipedia/commons/5/52/Bangalore_Shiva.jpg"
@@ -84,6 +85,19 @@ fun PostCard(
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop
                 )
+                
+                // Quote overlay
+                if (data.quote.isNotEmpty()) {
+                    Text(
+                        modifier = Modifier.padding(16.dp)
+                            .align(Alignment.BottomCenter),
+                        text = data.quote,
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.Yellow,
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                    )
+                }
             }
 
             // Content Section
@@ -243,6 +257,7 @@ fun Post.toPostCardData(): PostCardData {
         username = this.username,
         timeAgo = this.timeAgo,
         caption = this.caption,
+        quote = this.quote,
         likes = this.likes,
         comments = this.comments,
         avatarUrl = this.avatarUrl
@@ -275,6 +290,7 @@ fun PostCardPreview() {
                 imageUrl = "https://www.figma.com/api/mcp/asset/5ae572ea-308a-4378-a969-f370e412ad50",
                 timeAgo = "2 hours ago",
                 caption = "Exploring the city streets at golden hour 🌆",
+                quote = "The best views come after the hardest climbs",
                 likes = 1247,
                 comments = 43,
             ),

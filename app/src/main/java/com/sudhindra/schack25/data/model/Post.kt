@@ -29,6 +29,9 @@ data class Post(
     @SerializedName("caption")
     val caption: String,
     
+    @SerializedName("quote")
+    val quote: String = "",
+    
     @SerializedName("likes")
     val likes: Int,
     

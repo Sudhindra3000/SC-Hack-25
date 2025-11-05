@@ -81,8 +81,9 @@ class PostViewModel(
                 username = "nature_lover",
                 timeAgo = "2 hours ago",
                 caption = "Beautiful mountain sunrise 🏔️✨",
+                quote = "The mountains are calling and I must go",
                 likes = 1247,
-                comments = 43,
+                comments = 43
             ),
             Post(
                 id = "2",
@@ -90,8 +91,9 @@ class PostViewModel(
                 username = "travel_wanderer",
                 timeAgo = "5 hours ago",
                 caption = "Exploring ancient temples in Asia 🛕",
+                quote = "Not all who wander are lost",
                 likes = 892,
-                comments = 27,
+                comments = 27
             ),
             Post(
                 id = "3",
@@ -99,8 +101,9 @@ class PostViewModel(
                 username = "ocean_vibes",
                 timeAgo = "8 hours ago",
                 caption = "Sunset by the beach never gets old 🌅🌊",
+                quote = "The ocean stirs the heart, inspires the imagination",
                 likes = 2156,
-                comments = 89,
+                comments = 89
             ),
             Post(
                 id = "4",
@@ -108,8 +111,9 @@ class PostViewModel(
                 username = "foodie_adventures",
                 timeAgo = "12 hours ago",
                 caption = "The perfect breakfast spread 🥐☕",
+                quote = "Good food, good mood",
                 likes = 3421,
-                comments = 156,
+                comments = 156
             ),
             Post(
                 id = "5",
@@ -117,8 +121,9 @@ class PostViewModel(
                 username = "wild_explorer",
                 timeAgo = "1 day ago",
                 caption = "Lost in the wilderness 🌲🏕️",
+                quote = "Adventure awaits in the wild",
                 likes = 1876,
-                comments = 64,
+                comments = 64
             ),
             Post(
                 id = "6",
@@ -126,8 +131,9 @@ class PostViewModel(
                 username = "city_lights",
                 timeAgo = "1 day ago",
                 caption = "Urban photography at its finest 🏙️📸",
+                quote = "City lights, endless nights",
                 likes = 945,
-                comments = 32,
+                comments = 32
             ),
             Post(
                 id = "7",
@@ -135,8 +141,9 @@ class PostViewModel(
                 username = "pet_lover",
                 timeAgo = "2 days ago",
                 caption = "My furry best friend 🐱❤️",
+                quote = "Life is better with a furry friend",
                 likes = 4532,
-                comments = 234,
+                comments = 234
             ),
             Post(
                 id = "8",
@@ -144,8 +151,9 @@ class PostViewModel(
                 username = "peak_seekers",
                 timeAgo = "3 days ago",
                 caption = "Above the clouds ⛰️☁️",
+                quote = "Touch the sky, reach your dreams",
                 likes = 2987,
-                comments = 112,
+                comments = 112
             )
         )
     }
