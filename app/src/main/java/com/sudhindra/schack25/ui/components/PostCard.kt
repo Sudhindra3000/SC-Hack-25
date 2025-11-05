@@ -27,6 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.sudhindra.schack25.data.model.Post
 import com.sudhindra.schack25.ui.theme.SCHack25Theme
 
 /**
@@ -228,6 +229,35 @@ private fun StatBadge(
 @SuppressLint("DefaultLocale")
 private fun formatCount(count: Int): String {
     return String.format("%,d", count)
+}
+
+/**
+ * Extension function to convert API Post to PostCardData
+ */
+fun Post.toPostCardData(): PostCardData {
+    return PostCardData(
+        imageUrl = this.imageUrl,
+        username = this.username,
+        timeAgo = this.timeAgo,
+        caption = this.caption,
+        likes = this.likes,
+        comments = this.comments,
+        avatarUrl = this.avatarUrl
+    )
+}
+
+/**
+ * Overloaded PostCard that accepts Post model
+ */
+@Composable
+fun PostCard(
+    post: Post,
+    modifier: Modifier = Modifier
+) {
+    PostCard(
+        data = post.toPostCardData(),
+        modifier = modifier
+    )
 }
 
 /**

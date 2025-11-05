@@ -24,7 +24,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun SCHack25Theme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = false, //isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
