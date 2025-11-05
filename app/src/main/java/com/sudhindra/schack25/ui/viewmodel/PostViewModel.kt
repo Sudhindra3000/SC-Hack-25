@@ -83,7 +83,6 @@ class PostViewModel(
                 caption = "Beautiful mountain sunrise 🏔️✨",
                 likes = 1247,
                 comments = 43,
-                avatarUrl = "https://i.pravatar.cc/150?img=1"
             ),
             Post(
                 id = "2",
@@ -93,7 +92,6 @@ class PostViewModel(
                 caption = "Exploring ancient temples in Asia 🛕",
                 likes = 892,
                 comments = 27,
-                avatarUrl = "https://i.pravatar.cc/150?img=2"
             ),
             Post(
                 id = "3",
@@ -103,7 +101,6 @@ class PostViewModel(
                 caption = "Sunset by the beach never gets old 🌅🌊",
                 likes = 2156,
                 comments = 89,
-                avatarUrl = "https://i.pravatar.cc/150?img=3"
             ),
             Post(
                 id = "4",
@@ -113,7 +110,6 @@ class PostViewModel(
                 caption = "The perfect breakfast spread 🥐☕",
                 likes = 3421,
                 comments = 156,
-                avatarUrl = "https://i.pravatar.cc/150?img=4"
             ),
             Post(
                 id = "5",
@@ -123,7 +119,6 @@ class PostViewModel(
                 caption = "Lost in the wilderness 🌲🏕️",
                 likes = 1876,
                 comments = 64,
-                avatarUrl = "https://i.pravatar.cc/150?img=5"
             ),
             Post(
                 id = "6",
@@ -133,7 +128,6 @@ class PostViewModel(
                 caption = "Urban photography at its finest 🏙️📸",
                 likes = 945,
                 comments = 32,
-                avatarUrl = "https://i.pravatar.cc/150?img=6"
             ),
             Post(
                 id = "7",
@@ -143,7 +137,6 @@ class PostViewModel(
                 caption = "My furry best friend 🐱❤️",
                 likes = 4532,
                 comments = 234,
-                avatarUrl = "https://i.pravatar.cc/150?img=7"
             ),
             Post(
                 id = "8",
@@ -153,7 +146,6 @@ class PostViewModel(
                 caption = "Above the clouds ⛰️☁️",
                 likes = 2987,
                 comments = 112,
-                avatarUrl = "https://i.pravatar.cc/150?img=8"
             )
         )
     }

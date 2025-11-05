@@ -34,8 +34,8 @@ data class Post(
     
     @SerializedName("comments")
     val comments: Int,
-    
+
     @SerializedName("avatar_url")
-    val avatarUrl: String = "https://upload.wikimedia.org/wikipedia/commons/5/52/Bangalore_Shiva.jpg"
+    val avatarUrl: String = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQge_0nK5z5DQ85QdN-ANHiVcwJGcQc4n8ZpQ&s"
 )
 
