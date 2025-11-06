@@ -94,7 +94,7 @@ fun PostCard(
                         modifier = Modifier.padding(16.dp)
                             .align(Alignment.BottomCenter),
                         text = data.text,
-                        fontSize = 14.sp,
+                        fontSize = 22.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.Yellow,
                         textAlign = androidx.compose.ui.text.style.TextAlign.Center,
