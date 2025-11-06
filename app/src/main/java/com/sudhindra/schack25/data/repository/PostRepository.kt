@@ -44,7 +44,49 @@ class PostRepository {
                 text = "ਜੈ ਸ਼੍ਰੀ ਵਿਸ਼ਨੂੰ",
                 language = "Punjabi",
                 createdDate = "2025-11-06T06:01:49.346623"
-            )
+            ),
+            Post(
+                id = "1",
+                imageUrl = "https://res.cloudinary.com/dntocknoj/image/upload/v1762408934/devotional_content/devotional_lord_vishnu_punjabi_20251106_060207_monaww.png",
+                text = "ਓਮ ਵਿਸ਼ਨੂੰ ਨਮਹ।",
+                language = "Punjabi",
+                createdDate = "2025-11-06T06:02:17.858741"
+            ),
+            Post(
+                id = "2",
+                imageUrl = "https://res.cloudinary.com/dntocknoj/image/upload/v1762408908/devotional_content/devotional_lord_vishnu_punjabi_20251106_060142_oxlfqa.png",
+                text = "ਜੈ ਸ਼੍ਰੀ ਵਿਸ਼ਨੂੰ",
+                language = "Punjabi",
+                createdDate = "2025-11-06T06:01:49.346623"
+            ),
+            Post(
+                id = "3",
+                imageUrl = "https://res.cloudinary.com/dntocknoj/image/upload/v1762408934/devotional_content/devotional_lord_vishnu_punjabi_20251106_060207_monaww.png",
+                text = "ਓਮ ਵਿਸ਼ਨੂੰ ਨਮਹ।",
+                language = "Punjabi",
+                createdDate = "2025-11-06T06:02:17.858741"
+            ),
+            Post(
+                id = "4",
+                imageUrl = "https://res.cloudinary.com/dntocknoj/image/upload/v1762408908/devotional_content/devotional_lord_vishnu_punjabi_20251106_060142_oxlfqa.png",
+                text = "ਜੈ ਸ਼੍ਰੀ ਵਿਸ਼ਨੂੰ",
+                language = "Punjabi",
+                createdDate = "2025-11-06T06:01:49.346623"
+            ),
+            Post(
+                id = "5",
+                imageUrl = "https://res.cloudinary.com/dntocknoj/image/upload/v1762408934/devotional_content/devotional_lord_vishnu_punjabi_20251106_060207_monaww.png",
+                text = "ਓਮ ਵਿਸ਼ਨੂੰ ਨਮਹ।",
+                language = "Punjabi",
+                createdDate = "2025-11-06T06:02:17.858741"
+            ),
+            Post(
+                id = "6",
+                imageUrl = "https://res.cloudinary.com/dntocknoj/image/upload/v1762408908/devotional_content/devotional_lord_vishnu_punjabi_20251106_060142_oxlfqa.png",
+                text = "ਜੈ ਸ਼੍ਰੀ ਵਿਸ਼ਨੂੰ",
+                language = "Punjabi",
+                createdDate = "2025-11-06T06:01:49.346623"
+            ),
         )
     }
 }
