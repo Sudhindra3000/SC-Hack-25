@@ -1,6 +1,8 @@
 package com.sudhindra.schack25.ui.components
 
 import android.annotation.SuppressLint
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -31,6 +33,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.sudhindra.schack25.data.model.Post
 import com.sudhindra.schack25.ui.theme.SCHack25Theme
+import java.time.Duration
+import java.time.Instant
 
 /**
  * Data class representing a social media post
@@ -38,7 +42,7 @@ import com.sudhindra.schack25.ui.theme.SCHack25Theme
 data class PostCardData(
     val imageUrl: String,
     val username: String = "Devotional Post Bot",
-    val timeAgo: String = "t",
+    val timeAgo: String,
     val text: String = "",
     val likes: Int = 0,
     val comments: Int = 0,
@@ -236,11 +240,43 @@ private fun formatCount(count: Int): String {
 }
 
 /**
+ * Calculate time ago from ISO 8601 timestamp
+ * Format: 2025-11-06T06:01:49.346623
+ */
+@RequiresApi(Build.VERSION_CODES.O)
+private fun calculateTimeAgo(createdDate: String): String {
+    return try {
+        // Parse the ISO 8601 timestamp
+        val instant = Instant.parse(createdDate.replace(" ", "T").let {
+            // Ensure it ends with Z if no timezone info
+            if (it.contains("+") || it.contains("Z")) it else "${it}Z"
+        })
+        
+        val now = Instant.now()
+        val duration = Duration.between(instant, now)
+        
+        when {
+            duration.toMinutes() < 1 -> "Just now"
+            duration.toMinutes() < 60 -> "${duration.toMinutes()} minute${if (duration.toMinutes() != 1L) "s" else ""} ago"
+            duration.toHours() < 24 -> "${duration.toHours()} hour${if (duration.toHours() != 1L) "s" else ""} ago"
+            duration.toDays() < 7 -> "${duration.toDays()} day${if (duration.toDays() != 1L) "s" else ""} ago"
+            duration.toDays() < 30 -> "${duration.toDays() / 7} week${if (duration.toDays() / 7 != 1L) "s" else ""} ago"
+            duration.toDays() < 365 -> "${duration.toDays() / 30} month${if (duration.toDays() / 30 != 1L) "s" else ""} ago"
+            else -> "${duration.toDays() / 365} year${if (duration.toDays() / 365 != 1L) "s" else ""} ago"
+        }
+    } catch (e: Exception) {
+        "Recently"
+    }
+}
+
+/**
  * Extension function to convert API Post to PostCardData
  */
+@RequiresApi(Build.VERSION_CODES.O)
 fun Post.toPostCardData(): PostCardData {
     return PostCardData(
         imageUrl = this.imageUrl,
+        timeAgo = calculateTimeAgo(this.createdDate),
         text = this.text,
     )
 }
@@ -248,6 +284,7 @@ fun Post.toPostCardData(): PostCardData {
 /**
  * Overloaded PostCard that accepts Post model
  */
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun PostCard(
     post: Post,
