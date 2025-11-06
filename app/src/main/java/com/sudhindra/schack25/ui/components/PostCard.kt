@@ -39,7 +39,6 @@ data class PostCardData(
     val imageUrl: String,
     val username: String = "Devotional Post Bot",
     val timeAgo: String = "t",
-    val caption: String = "c",
     val text: String = "",
     val likes: Int = 0,
     val comments: Int = 0,
@@ -153,17 +152,6 @@ fun PostCard(
                     }
                 }
 
-                // Caption
-                Text(
-                    text = data.caption,
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Normal,
-                    color = Color(0xFF0A0A0A),
-                    lineHeight = 22.75.sp,
-                    letterSpacing = (-0.1504).sp,
-                    maxLines = 1
-                )
-
                 // Stats Section
                 Column(
                     modifier = Modifier.fillMaxWidth()
@@ -254,7 +242,6 @@ private fun formatCount(count: Int): String {
 fun Post.toPostCardData(): PostCardData {
     return PostCardData(
         imageUrl = this.imageUrl,
-        caption = this.text,
         text = this.text,
     )
 }
@@ -284,7 +271,6 @@ fun PostCardPreview() {
             data = PostCardData(
                 imageUrl = "https://www.figma.com/api/mcp/asset/5ae572ea-308a-4378-a969-f370e412ad50",
                 timeAgo = "2 hours ago",
-                caption = "Exploring the city streets at golden hour 🌆",
                 text = "The best views come after the hardest climbs",
                 likes = 1247,
                 comments = 43,
