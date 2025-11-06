@@ -78,7 +78,7 @@ fun PostCard(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(256.dp)
+                    .height(356.dp)
             ) {
                 AsyncImage(
                     model = data.imageUrl,
