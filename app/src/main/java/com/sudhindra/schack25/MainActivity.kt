@@ -1,9 +1,11 @@
 package com.sudhindra.schack25
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,6 +14,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -32,6 +36,7 @@ import com.sudhindra.schack25.ui.viewmodel.PostUiState
 import com.sudhindra.schack25.ui.viewmodel.PostViewModel
 
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +64,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PostsScreen(
@@ -74,6 +80,7 @@ fun PostsScreen(
     ) {
         when (val state = uiState) {
             is PostUiState.Loading -> {
+                LoadingState(modifier = Modifier.fillMaxSize())
             }
 
             is PostUiState.Success -> {
@@ -86,13 +93,15 @@ fun PostsScreen(
             is PostUiState.Error -> {
                 ErrorState(
                     message = state.message,
-                    onRetry = { viewModel.refresh() }
+                    onRetry = { viewModel.refresh() },
+                    modifier = Modifier.fillMaxSize()
                 )
             }
         }
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun PostsList(
     posts: List<com.sudhindra.schack25.data.model.Post>,
@@ -116,14 +125,40 @@ fun PostsList(
 }
 
 @Composable
+fun LoadingState(
+    modifier: Modifier = Modifier
+) {
+    val scrollState = rememberScrollState()
+    
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .verticalScroll(scrollState)
+            .padding(16.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = "Loading posts...",
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(vertical = 32.dp)
+        )
+    }
+}
+
+@Composable
 fun ErrorState(
     message: String,
     onRetry: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val scrollState = rememberScrollState()
+    
     Box(
         modifier = modifier
             .fillMaxSize()
+            .verticalScroll(scrollState)
             .padding(16.dp),
         contentAlignment = Alignment.Center
     ) {
@@ -131,7 +166,8 @@ fun ErrorState(
             text = "Error: $message\n\nPull down to retry",
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.error,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(vertical = 32.dp)
         )
     }
 }
