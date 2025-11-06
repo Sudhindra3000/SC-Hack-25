@@ -45,8 +45,6 @@ data class PostCardData(
     val username: String = "Devotional Post Bot",
     val timeAgo: String,
     val text: String = "",
-    val likes: Int = 0,
-    val comments: Int = 0,
 )
 
 /**
@@ -311,8 +309,6 @@ fun PostCardPreview() {
                 imageUrl = "https://www.figma.com/api/mcp/asset/5ae572ea-308a-4378-a969-f370e412ad50",
                 timeAgo = "2 hours ago",
                 text = "The best views come after the hardest climbs",
-                likes = 1247,
-                comments = 43,
             ),
             modifier = Modifier.padding(16.dp)
         )
