@@ -44,20 +44,18 @@ class PostViewModel(
             // Simulate network delay
             delay(1500)
             
-            // MOCK DATA - Replace with actual API call when ready
-            val mockPosts = repository.getMockPosts()
-            _uiState.value = PostUiState.Success(mockPosts)
-//
-//             Uncomment below to use real API
-//            repository.getPosts()
-//                .onSuccess { posts ->
-//                    _uiState.value = PostUiState.Success(posts)
-//                }
-//                .onFailure { exception ->
-//                    _uiState.value = PostUiState.Error(
-//                        exception.message ?: "Unknown error occurred"
-//                    )
-//                }
+//            val mockPosts = repository.getMockPosts()
+//            _uiState.value = PostUiState.Success(mockPosts)
+
+            repository.getPosts()
+                .onSuccess { posts ->
+                    _uiState.value = PostUiState.Success(posts)
+                }
+                .onFailure { exception ->
+                    _uiState.value = PostUiState.Error(
+                        exception.message ?: "Unknown error occurred"
+                    )
+                }
         }
     }
     
