@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sudhindra.schack25.data.model.Post
 import com.sudhindra.schack25.data.repository.PostRepository
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -25,14 +24,14 @@ sealed interface PostUiState {
 class PostViewModel(
     private val repository: PostRepository = PostRepository()
 ) : ViewModel() {
-    
+
     private val _uiState = MutableStateFlow<PostUiState>(PostUiState.Loading)
     val uiState: StateFlow<PostUiState> = _uiState.asStateFlow()
-    
+
     init {
         loadPosts()
     }
-    
+
     /**
      * Load posts from the API
      * Currently using MOCK DATA for testing
@@ -40,10 +39,7 @@ class PostViewModel(
     fun loadPosts() {
         viewModelScope.launch {
             _uiState.value = PostUiState.Loading
-            
-            // Simulate network delay
-            delay(1500)
-            
+
 //            val mockPosts = repository.getMockPosts()
 //            _uiState.value = PostUiState.Success(mockPosts)
 
@@ -58,14 +54,14 @@ class PostViewModel(
                 }
         }
     }
-    
+
     /**
      * Refresh posts
      */
     fun refresh() {
         loadPosts()
     }
-    
+
     /**
      * Generate mock posts for testing
      */

@@ -10,9 +10,9 @@ import kotlinx.coroutines.withContext
  * Repository for managing post data
  */
 class PostRepository {
-    
+
     private val apiService = RetrofitClient.apiService
-    
+
     /**
      * Fetch posts from the API
      */
@@ -24,11 +24,12 @@ class PostRepository {
             Result.failure(e)
         }
     }
-    
+
     /**
      * Mock posts based on the provided API response
      */
-    fun getMockPosts(): List<Post> {
+    suspend fun getMockPosts(): List<Post> {
+        delay(800)
         return listOf(
             Post(
                 id = "6c76786a-6e79-4669-aa56-80e3118bf475",
