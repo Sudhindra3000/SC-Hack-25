@@ -18,7 +18,7 @@ class PostRepository {
     suspend fun getPosts(): Result<List<Post>> = withContext(Dispatchers.IO) {
         try {
             val response = apiService.getPosts()
-            Result.success(response.posts)
+            Result.success(response.data)
         } catch (e: Exception) {
             Result.failure(e)
         }

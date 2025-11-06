@@ -45,11 +45,10 @@ class PostViewModel(
             delay(1500)
             
             // MOCK DATA - Replace with actual API call when ready
-            val mockPosts = getMockPosts()
-            _uiState.value = PostUiState.Success(mockPosts)
-            
-            // Uncomment below to use real API
-            /*
+//            val mockPosts = getMockPosts()
+//            _uiState.value = PostUiState.Success(mockPosts)
+//
+//             Uncomment below to use real API
             repository.getPosts()
                 .onSuccess { posts ->
                     _uiState.value = PostUiState.Success(posts)
@@ -59,7 +58,6 @@ class PostViewModel(
                         exception.message ?: "Unknown error occurred"
                     )
                 }
-            */
         }
     }
     
@@ -73,89 +71,80 @@ class PostViewModel(
     /**
      * Generate mock posts for testing
      */
-    private fun getMockPosts(): List<Post> {
-        return listOf(
-            Post(
-                id = "1",
-                imageUrl = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
-                username = "nature_lover",
-                timeAgo = "2 hours ago",
-                caption = "Beautiful mountain sunrise 🏔️✨",
-                quote = "The mountains are calling and I must go",
-                likes = 1247,
-                comments = 43
-            ),
-            Post(
-                id = "2",
-                imageUrl = "https://images.unsplash.com/photo-1511300636408-a63a89df3482",
-                username = "travel_wanderer",
-                timeAgo = "5 hours ago",
-                caption = "Exploring ancient temples in Asia 🛕",
-                quote = "Not all who wander are lost",
-                likes = 892,
-                comments = 27
-            ),
-            Post(
-                id = "3",
-                imageUrl = "https://images.unsplash.com/photo-1501594907352-04cda38ebc29",
-                username = "ocean_vibes",
-                timeAgo = "8 hours ago",
-                caption = "Sunset by the beach never gets old 🌅🌊",
-                quote = "The ocean stirs the heart, inspires the imagination",
-                likes = 2156,
-                comments = 89
-            ),
-            Post(
-                id = "4",
-                imageUrl = "https://images.unsplash.com/photo-1493246507139-91e8fad9978e",
-                username = "foodie_adventures",
-                timeAgo = "12 hours ago",
-                caption = "The perfect breakfast spread 🥐☕",
-                quote = "Good food, good mood",
-                likes = 3421,
-                comments = 156
-            ),
-            Post(
-                id = "5",
-                imageUrl = "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
-                username = "wild_explorer",
-                timeAgo = "1 day ago",
-                caption = "Lost in the wilderness 🌲🏕️",
-                quote = "Adventure awaits in the wild",
-                likes = 1876,
-                comments = 64
-            ),
-            Post(
-                id = "6",
-                imageUrl = "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b",
-                username = "city_lights",
-                timeAgo = "1 day ago",
-                caption = "Urban photography at its finest 🏙️📸",
-                quote = "City lights, endless nights",
-                likes = 945,
-                comments = 32
-            ),
-            Post(
-                id = "7",
-                imageUrl = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131",
-                username = "pet_lover",
-                timeAgo = "2 days ago",
-                caption = "My furry best friend 🐱❤️",
-                quote = "Life is better with a furry friend",
-                likes = 4532,
-                comments = 234
-            ),
-            Post(
-                id = "8",
-                imageUrl = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
-                username = "peak_seekers",
-                timeAgo = "3 days ago",
-                caption = "Above the clouds ⛰️☁️",
-                quote = "Touch the sky, reach your dreams",
-                likes = 2987,
-                comments = 112
-            )
-        )
-    }
+//    private fun getMockPosts(): List<Post> {
+//        return listOf(
+//            Post(
+//                id = "1",
+//                imageUrl = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+//                text = "The mountains are calling and I must go",
+//                language = "English",
+//                createdDate = "2025-11-06T02:00:00.000000",
+//            ),
+//            Post(
+//                id = "2",
+//                imageUrl = "https://images.unsplash.com/photo-1511300636408-a63a89df3482",
+//                text = "Not all who wander are lost",
+//                language = "English",
+//                createdDate = "2025-11-05T23:00:00.000000",
+//            ),
+//            Post(
+//                id = "3",
+//                imageUrl = "https://images.unsplash.com/photo-1501594907352-04cda38ebc29",
+//                text = "The ocean stirs the heart, inspires the imagination",
+//                language = "English",
+//                createdDate = "2025-11-05T20:00:00.000000",
+//            ),
+//            Post(
+//                id = "4",
+//                imageUrl = "https://images.unsplash.com/photo-1493246507139-91e8fad9978e",
+//                text = "Good food, good mood",
+//                language = "English",
+//                createdDate = "2025-11-05T16:00:00.000000",
+//            ),
+//            Post(
+//                id = "5",
+//                imageUrl = "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
+//                text = "Adventure awaits in the wild",
+//                language = "English",
+//                createdDate = "2025-11-05T04:00:00.000000",
+//            ),
+//            Post(
+//                id = "6",
+//                imageUrl = "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b",
+//                text = "City lights, endless nights",
+//                language = "English",
+//                createdDate = "2025-11-05T04:00:00.000000",
+//                username = "city_lights",
+//                timeAgo = "1 day ago",
+//                caption = "Urban photography at its finest 🏙️📸",
+//                likes = 945,
+//                comments = 32
+//            ),
+//            Post(
+//                id = "7",
+//                imageUrl = "https://images.unsplash.com/photo-1518791841217-8f162f1e1131",
+//                text = "Life is better with a furry friend",
+//                language = "English",
+//                createdDate = "2025-11-04T04:00:00.000000",
+//                username = "pet_lover",
+//                timeAgo = "2 days ago",
+//                caption = "My furry best friend 🐱❤️",
+//                likes = 4532,
+//                comments = 234
+//            ),
+//            Post(
+//                id = "8",
+//                imageUrl = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
+//                text = "Touch the sky, reach your dreams",
+//                language = "English",
+//                createdDate = "2025-11-03T04:00:00.000000",
+//                username = "peak_seekers",
+//                timeAgo = "3 days ago",
+//                caption = "Above the clouds ⛰️☁️",
+//                likes = 2987,
+//                comments = 112
+//            )
+//        )
+//    }
 }
 

@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 object RetrofitClient {
     
     // TODO: Replace with your actual API base URL
-    private const val BASE_URL = "https://your-api-url.com/api/"
+    private const val BASE_URL = "http://13.232.243.224:8000/api/devotional-content/"
     
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY

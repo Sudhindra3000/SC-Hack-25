@@ -38,11 +38,11 @@ import com.sudhindra.schack25.ui.theme.SCHack25Theme
 data class PostCardData(
     val imageUrl: String,
     val username: String = "Devotional Post Bot",
-    val timeAgo: String,
-    val caption: String,
-    val quote: String = "",
-    val likes: Int,
-    val comments: Int,
+    val timeAgo: String = "t",
+    val caption: String = "c",
+    val text: String = "",
+    val likes: Int = 0,
+    val comments: Int = 0,
     val avatarUrl: String = "https://upload.wikimedia.org/wikipedia/commons/5/52/Bangalore_Shiva.jpg"
 )
 
@@ -86,12 +86,12 @@ fun PostCard(
                     contentScale = ContentScale.Crop
                 )
                 
-                // Quote overlay
-                if (data.quote.isNotEmpty()) {
+                // Text overlay
+                if (data.text.isNotEmpty()) {
                     Text(
                         modifier = Modifier.padding(16.dp)
                             .align(Alignment.BottomCenter),
-                        text = data.quote,
+                        text = data.text,
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.Yellow,
@@ -254,13 +254,8 @@ private fun formatCount(count: Int): String {
 fun Post.toPostCardData(): PostCardData {
     return PostCardData(
         imageUrl = this.imageUrl,
-        username = this.username,
-        timeAgo = this.timeAgo,
-        caption = this.caption,
-        quote = this.quote,
-        likes = this.likes,
-        comments = this.comments,
-        avatarUrl = this.avatarUrl
+        caption = this.text,
+        text = this.text,
     )
 }
 
@@ -290,7 +285,7 @@ fun PostCardPreview() {
                 imageUrl = "https://www.figma.com/api/mcp/asset/5ae572ea-308a-4378-a969-f370e412ad50",
                 timeAgo = "2 hours ago",
                 caption = "Exploring the city streets at golden hour 🌆",
-                quote = "The best views come after the hardest climbs",
+                text = "The best views come after the hardest climbs",
                 likes = 1247,
                 comments = 43,
             ),

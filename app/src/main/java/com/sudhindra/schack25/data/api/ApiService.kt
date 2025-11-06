@@ -14,7 +14,7 @@ interface ApiService {
      * Fetch posts from the API
      * TODO: Update endpoint path and parameters as needed
      */
-    @GET("posts")
+    @GET("history")
     suspend fun getPosts(
         @Query("limit") limit: Int? = null,
         @Query("offset") offset: Int? = null
