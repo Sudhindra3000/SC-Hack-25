@@ -42,7 +42,6 @@ data class PostCardData(
     val text: String = "",
     val likes: Int = 0,
     val comments: Int = 0,
-    val avatarUrl: String = "https://upload.wikimedia.org/wikipedia/commons/5/52/Bangalore_Shiva.jpg"
 )
 
 /**
@@ -117,7 +116,7 @@ fun PostCard(
                         modifier = Modifier
                             .size(40.dp)
                             .clip(CircleShape),
-                        model = data.avatarUrl,
+                        model = "https://www.devpoojan.in/cdn/shop/articles/HD-Lord-Ram-Pictures.jpg?v=1679112776&width=540",
                         contentDescription = "User avatar",
                         contentScale = ContentScale.Crop
                     )
